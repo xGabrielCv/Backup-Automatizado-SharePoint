@@ -285,7 +285,7 @@ python sharepoint_backup_ultimate.py
 2025-10-25 02:15:45 - INFO - ☁️  UPLOAD ONEDRIVE
 2025-10-25 02:15:45 - INFO - ======================================================================
 2025-10-25 02:15:46 - INFO - ✅ Graph Client inicializado
-2025-10-25 02:15:46 - INFO -    Usuário: gabrielcarvalho54@empresa.com
+2025-10-25 02:15:46 - INFO -    Usuário: gabriel@empresa.com
 2025-10-25 02:15:47 - INFO - Total: 15 arquivos
 2025-10-25 02:18:23 - INFO - 
 2025-10-25 02:18:23 - INFO - ✅ Upload: 15/15 (100.0%)
