@@ -1,6 +1,5 @@
 # 🚀 Sistema de Backup Automatizado do SharePoint 
-
-**Autor:** gabrielcarvalho54  
+ 
 **Data:** 2025-10-25  
 **Versão:** 4.0 ULTIMATE  
 **Status:** ✅ Pronto para produção
