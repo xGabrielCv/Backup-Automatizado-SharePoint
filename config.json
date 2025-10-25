@@ -1,0 +1,54 @@
+{
+    "_INSTRUCOES": {
+        "DOCUMENTACAO_COMPLETA": "Veja GUIA_CONFIGURACAO_AZURE.md e README.md",
+        "VERSAO": "4.0 ULTIMATE",
+        "AUTOR": "",
+        "DATA": "2025-10-25"
+    },
+    "tenant_id": "SEU_TENANT_ID_AQUI",
+    "client_id": "SEU_CLIENT_ID_AQUI",
+    "client_secret": "SEU_CLIENT_SECRET_AQUI",
+    "sharepoint_sites": [
+        {
+            "url": "https://suaempresa.sharepoint.com/sites/site1",
+            "nome": "Site 1 - Vendas"
+        },
+        {
+            "url": "https://suaempresa.sharepoint.com/sites/site2",
+            "nome": "Site 2 - RH"
+        }
+    ],
+    "onedrive_user_email": "gabriel@empresa.com",
+    "onedrive_folder": "Backups_SharePoint",
+    "backup_base_path": "Backups",
+    "max_backups_to_keep": 7,
+    "log_file": "backup_sharepoint.log",
+    "batch_size": 5000,
+    "retry_attempts": 3,
+    "retry_delay_seconds": 5,
+    "_NOVIDADES_V4": {
+        "use_portable_libs": "Usar bibliotecas de portable_libs mesmo em HD local",
+        "keep_alive_enabled": "Manter PC ativo durante execução",
+        "schedule_type": "Tipos: daily, interval, specific_days, multiple_times",
+        "notifications_enabled": "Ativar notificações via ntfy.sh"
+    },
+    "use_portable_libs": false,
+    "keep_alive_enabled": true,
+    "schedule_type": "daily",
+    "schedule_time": "02:00",
+    "schedule_interval_days": 3,
+    "schedule_days": [
+        "monday",
+        "wednesday",
+        "friday"
+    ],
+    "schedule_times": [
+        "02:00",
+        "14:00"
+    ],
+    "notifications_enabled": false,
+    "ntfy_topic": "backup-sharepoint-seu-nome-unico",
+    "ntfy_server": "https://ntfy.sh",
+    "ntfy_priority": "default",
+    "ntfy_timeout": 5
+}
