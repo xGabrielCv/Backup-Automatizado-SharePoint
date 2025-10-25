@@ -38,7 +38,7 @@ Edite o arquivo `config.json` com suas credenciais do Azure:
     "client_id": "seu-client-id-aqui",
     "client_secret": "seu-client-secret-aqui",
     "sharepoint_sites": [...],
-    "onedrive_user_email": "gabrielcarvalho54@empresa.com"
+    "onedrive_user_email": "gabriel@empresa.com"
 }
 ```
 
@@ -275,4 +275,3 @@ Verifique a data da pasta mais recente em `Backups/`
 
 **Última atualização:** 2025-10-25  
 **Versão:** 2.1 PORTABLE  
-**Autor:** gabrielcarvalho54

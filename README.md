@@ -1,4 +1,5 @@
 # 🚀 Sistema de Backup Automatizado do SharePoint 
+
  
 **Data:** 2025-10-25  
 **Versão:** 4.0 ULTIMATE  
@@ -127,7 +128,7 @@ executar_backup.bat
 
 ```json
 {
-    "onedrive_user_email": "gabrielcarvalho54@empresa.com",
+    "onedrive_user_email": "gabriel@empresa.com",
     "onedrive_folder": "Backups_SharePoint"
 }
 ```
@@ -204,7 +205,7 @@ executar_backup.bat
 ```json
 {
     "notifications_enabled": true,
-    "ntfy_topic": "backup-sharepoint-gabrielcarvalho54",
+    "ntfy_topic": "backup-sharepoint-gabriel",
     "ntfy_server": "https://ntfy.sh",
     "ntfy_priority": "default",
     "ntfy_timeout": 5
@@ -267,7 +268,7 @@ python sharepoint_backup_ultimate.py
 2025-10-25 02:00:00 - INFO - ##    🚀 BACKUP SHAREPOINT INICIADO    ##
 2025-10-25 02:00:00 - INFO - ######################################################################
 2025-10-25 02:00:00 - INFO - 📅 2025-10-25 02:00:00
-2025-10-25 02:00:00 - INFO - 👤 gabrielcarvalho54
+2025-10-25 02:00:00 - INFO - 👤 gabriel
 2025-10-25 02:00:00 - INFO - ⚡ Keep-Alive ATIVADO (PC permanecerá ativo)
 2025-10-25 02:00:00 - INFO - 🔔 Notificações ATIVADAS (ntfy.sh)
 2025-10-25 02:00:01 - INFO - ✅ Pasta: Backups/Backup_2025-10-25
@@ -382,6 +383,7 @@ Sim! Use:
 
 ---
 
+
 ### Logs
 
 Verifique: `backup_sharepoint.log`
@@ -393,5 +395,17 @@ verificar_instalacao.bat    # Verifica ambiente
 testar_notificacoes.bat     # Testa ntfy.sh
 ```
 
+---
+
+
+**⭐ Recursos v4.0:**
+- ✅ Keep-Alive (PC ativo)
+- ✅ Agendamento avançado (4 modos)
+- ✅ Notificações push (opcional)
+- ✅ Modo portátil aprimorado
+- ✅ Logs detalhados
+- ✅ Performance otimizada
+
+---
 
 **Última atualização:** 2025-10-25 18:01:41 UTC

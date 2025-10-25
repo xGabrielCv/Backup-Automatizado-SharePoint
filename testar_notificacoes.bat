@@ -7,7 +7,7 @@ echo ========================================================================
 echo.
 echo Este script testa o envio de notificações via ntfy.sh
 echo.
-set /p TOPIC="Digite seu tópico ntfy (ex: backup-sharepoint-gabrielcarvalho54): "
+set /p TOPIC="Digite seu tópico ntfy (ex: backup-sharepoint-gabriel): "
 echo.
 echo Enviando notificação de teste para: %TOPIC%
 echo.

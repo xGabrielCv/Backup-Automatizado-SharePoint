@@ -1,7 +1,6 @@
 # 📅 Guia Completo de Agendamento Avançado - SharePoint Backup v4.0
 
-**Versão:** 4.0 ULTIMATE  
-**Autor:** gabrielcarvalho54  
+**Versão:** 4.0 ULTIMATE   
 **Data:** 2025-10-25  
 **Atualizado:** 2025-10-25 18:04:07 UTC
 
@@ -767,4 +766,3 @@ backup_sharepoint.log
 
 **Última atualização:** 2025-10-25 18:04:07 UTC  
 **Versão:** 4.0 ULTIMATE  
-**Autor:** gabrielcarvalho54

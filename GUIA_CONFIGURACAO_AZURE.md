@@ -125,7 +125,7 @@ Agora edite o arquivo `config.json` com os valores copiados:
             "nome": "Site de RH"
         }
     ],
-    "onedrive_user_email": "gabrielcarvalho54@empresa.com",
+    "onedrive_user_email": "asdasdasd@empresa.com",
     "backup_base_path": "Backups",
     "onedrive_folder": "Backups_SharePoint",
     "max_backups_to_keep": 7,

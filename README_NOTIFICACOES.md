@@ -1,7 +1,6 @@
 # 🔔 Guia Completo de Notificações - SharePoint Backup v4.0
 
-**Versão:** 4.0 ULTIMATE  
-**Autor:** gabrielcarvalho54  
+**Versão:** 4.0 ULTIMATE   
 **Data:** 2025-10-25  
 **Atualizado:** 2025-10-25 18:04:07 UTC
 
@@ -53,7 +52,7 @@ O sistema de notificações do SharePoint Backup v4.0 usa **ntfy.sh**, um servi�
 - ❌ `teste`
 
 **Exemplos de tópicos BONS:**
-- ✅ `backup-sharepoint-gabrielcarvalho54-2025`
+- ✅ `backup-sharepoint-gabriel-2025`
 - ✅ `sp-backup-empresa-abc-secret-987`
 - ✅ `meu-backup-unico-xyz123`
 
@@ -73,7 +72,7 @@ Edite o arquivo `config.json`:
 ```json
 {
     "notifications_enabled": true,
-    "ntfy_topic": "backup-sharepoint-gabrielcarvalho54-2025",
+    "ntfy_topic": "backup-sharepoint-gabriel-2025",
     "ntfy_server": "https://ntfy.sh",
     "ntfy_priority": "default",
     "ntfy_timeout": 5
@@ -137,7 +136,7 @@ O tópico único que você criou.
 
 **Exemplo:**
 ```json
-"ntfy_topic": "backup-sharepoint-gabrielcarvalho54-2025"
+"ntfy_topic": "backup-sharepoint-gabriel-2025"
 ```
 
 #### `ntfy_server` (string)
@@ -292,7 +291,7 @@ AADSTS7000215: Invalid client secret is provided.
 
 **3. Tópico correto no config.json?**
 ```json
-"ntfy_topic": "backup-sharepoint-gabrielcarvalho54-2025"
+"ntfy_topic": "backup-sharepoint-gabriel-2025"
 ```
 
 **4. Notificações habilitadas?**
@@ -368,7 +367,7 @@ install_offline.bat
 
 **Solução:** Use um tópico ÚNICO e complexo:
 ```json
-"ntfy_topic": "backup-sharepoint-gabrielcarvalho54-empresa-abc-2025-xyz987"
+"ntfy_topic": "backup-sharepoint-gabriel-empresa-abc-2025-xyz987"
 ```
 
 ---
@@ -397,7 +396,7 @@ install_offline.bat
 
 ✅ **Use tópicos únicos e longos:**
 ```
-backup-sharepoint-gabrielcarvalho54-empresa-xyz-2025-secret123
+backup-sharepoint-gabriel-empresa-xyz-2025-secret123
 ```
 
 ✅ **Não compartilhe seu tópico:**
@@ -762,4 +761,3 @@ Agora você receberá notificações de:
 
 **Última atualização:** 2025-10-25 18:04:07 UTC  
 **Versão:** 4.0 ULTIMATE  
-**Autor:** gabrielcarvalho54

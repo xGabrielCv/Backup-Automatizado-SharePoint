@@ -3,7 +3,7 @@ chcp 65001 >nul
 cls
 echo ========================================================================
 echo    Sistema de Backup Automatizado SharePoint v4.0 ULTIMATE
-echo    Autor: gabrielcarvalho54
+echo    Autor: 
 echo    Data: 2025-10-25
 echo ========================================================================
 echo.

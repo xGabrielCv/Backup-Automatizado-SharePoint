@@ -1,6 +1,5 @@
 """
 Sistema de Backup Automatizado de Listas do SharePoint - VERSÃO ULTIMATE
-Autor: gabrielcarvalho54
 Data: 2025-10-25
 Versão: 4.0 ULTIMATE
 
@@ -488,7 +487,7 @@ class SharePointBackupUltimate:
                         "nome": "Site 1"
                     }
                 ],
-                "onedrive_user_email": "gabrielcarvalho54@empresa.com",
+                "onedrive_user_email": "gabriel@empresa.com",
                 "onedrive_folder": "Backups_SharePoint",
                 "backup_base_path": str(SCRIPT_DIR / "Backups"),
                 "max_backups_to_keep": 7,
@@ -903,7 +902,7 @@ class SharePointBackupUltimate:
         self.logger.info(f"##    🚀 BACKUP SHAREPOINT INICIADO    ##")
         self.logger.info(f"{'#'*70}")
         self.logger.info(f"📅 {start_time.strftime('%Y-%m-%d %H:%M:%S')}")
-        self.logger.info(f"👤 gabrielcarvalho54")
+        self.logger.info(f"👤 gabriel")
         
         try:
             if not self._validate_credentials():

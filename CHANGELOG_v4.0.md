@@ -1,7 +1,6 @@
 # 📝 Changelog - Versão 4.0 ULTIMATE
 
-**Data de Lançamento:** 2025-10-25 18:04:07 UTC  
-**Autor:** gabrielcarvalho54  
+**Data de Lançamento:** 2025-10-25 18:04:07 UTC    
 **Versão Anterior:** 3.0 FINAL OPTIMIZED  
 **Versão Atual:** 4.0 ULTIMATE
 
