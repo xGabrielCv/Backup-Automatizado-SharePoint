@@ -382,8 +382,6 @@ Sim! Use:
 
 ---
 
-## 🤝 Suporte
-
 ### Logs
 
 Verifique: `backup_sharepoint.log`
@@ -395,25 +393,5 @@ verificar_instalacao.bat    # Verifica ambiente
 testar_notificacoes.bat     # Testa ntfy.sh
 ```
 
----
-
-## 🎉 Créditos
-
-**Desenvolvido por:** gabrielcarvalho54  
-**Versão:** 4.0 ULTIMATE  
-**Data:** 2025-10-25  
-**Tecnologias:** Python, Office365-REST-Python-Client, Microsoft Graph API, ntfy.sh
-
----
-
-**⭐ Recursos v4.0:**
-- ✅ Keep-Alive (PC ativo)
-- ✅ Agendamento avançado (4 modos)
-- ✅ Notificações push (opcional)
-- ✅ Modo portátil aprimorado
-- ✅ Logs detalhados
-- ✅ Performance otimizada
-
----
 
 **Última atualização:** 2025-10-25 18:01:41 UTC
