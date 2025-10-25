@@ -1,169 +1,210 @@
-# 🚀 Sistema de Backup Automatizado do SharePoint 
+# 🚀 Sistema de Backup Automatizado do SharePoint
 
- 
-**Data:** 2025-10-25  
-**Versão:** 4.0 ULTIMATE  
-**Status:** ✅ Pronto para produção
+<p align="center">
+  <img src="https://img.shields.io/badge/version-4.0%20ULTIMATE-blue.svg" alt="Version">
+  <img src="https://img.shields.io/badge/python-3.7%2B-green.svg" alt="Python">
+  <img src="https://img.shields.io/badge/platform-Windows%20%7C%20Linux-lightgrey.svg" alt="Platform">
 
----
+  <img src="https://img.shields.io/github/stars/xGabrielCv/Backup-Automatizado-SharePoint?style=social" alt="Stars">
+</p>
 
-## 🌟 Novidades da Versão 4.0 ULTIMATE
+<p align="center">
+  <strong>Sistema completo e automatizado para backup de listas do SharePoint com upload para OneDrive</strong>
+</p>
 
-### ✨ Novos Recursos
-
-1. **🔌 Modo Portátil Aprimorado**
-   - Agora funciona em HD local também usando `portable_libs/`
-   - Configure `"use_portable_libs": true` no `config.json`
-
-2. **⚡ Keep-Alive Inteligente**
-   - PC permanece ativo durante execução
-   - Previne suspensão, hibernação e bloqueio de tela
-   - Thread não-bloqueante em segundo plano
-
-3. **📅 Agendamento Avançado**
-   - **Diário:** Executa todo dia em horário específico
-   - **Intervalo:** A cada X dias (ex: a cada 3 dias)
-   - **Dias específicos:** Segunda, quarta e sexta (exemplo)
-   - **Múltiplos horários:** Várias vezes por dia
-
-4. **🔔 Notificações Push (Opcional)**
-   - Integração com ntfy.sh
-   - Notificações de início, erros e conclusão
-   - Não-bloqueante (executa em thread separada)
-   - Timeout curto para não atrasar o backup
+<p align="center">
+  <a href="#-recursos">Recursos</a> •
+  <a href="#-início-rápido">Início Rápido</a> •
+  <a href="#-documentação">Documentação</a> •
+</p>
 
 ---
 
-## 📦 Estrutura do Projeto v4.0
+## ✨ Recursos Principais
 
-```
-SharePoint_Backup/
-├── 📄 sharepoint_backup_ultimate.py    ← Script principal v4.0
-├── ⚙️  config.json                      ← Configurações (com novos parâmetros)
-├── 🔧 prepare_portable.bat             ← Preparar modo portátil
-├── 💾 install_offline.bat              ← Instalador offline
-├── ▶️  executar_backup.bat             ← Atalho de execução
-├── 🔍 verificar_instalacao.bat         ← Verificar ambiente
-├── 🔔 testar_notificacoes.bat          ← Testar ntfy.sh
-├── 📚 GUIA_CONFIGURACAO_AZURE.md       ← Guia Azure AD
-├── 📖 README_PORTABLE.md               ← Guia modo portátil
-├── 📖 README_NOTIFICACOES.md           ← Guia notificações
-├── 📖 README_AGENDAMENTO.md            ← Guia agendamento avançado
-├── 📝 CHANGELOG_v4.0.md                ← Novidades v4.0
-├── 📂 portable_libs/                   ← Bibliotecas Python (.whl)
-│   ├── Office365_REST_Python_Client-*.whl
-│   ├── schedule-*.whl
-│   └── requests-*.whl
-└── 📂 Backups/                         ← Backups gerados
-    ├── Backup_2025-10-25/
-    │   ├── Site1/
-    │   │   ├── Lista1.csv
-    │   │   └── Lista2.csv
-    │   └── Site2/
-    │       └── ListaA.csv
-    └── backup_sharepoint.log
-```
+- ✅ **Autenticação Segura** - Via Azure App Registration (suporta MFA)
+- ✅ **Backup Múltiplos Sites** - Processa vários sites SharePoint simultaneamente
+- ✅ **Exportação CSV** - Todas as listas em formato UTF-8 (compatível Excel)
+- ✅ **Paginação Automática** - Suporta listas com +5.000 itens
+- ✅ **Upload OneDrive** - Sincronização automática via Microsoft Graph API
+- ✅ **Modo Portátil** - Execução direto de pendrive (ambientes restritos)
+- ✅ **Keep-Alive** - Mantém PC ativo durante backup longo
+- ✅ **Agendamento Avançado** - 4 modos (diário, intervalo, dias específicos, múltiplos horários)
+- ✅ **Notificações Push** - Via ntfy.sh (opcional e não-bloqueante)
+- ✅ **Logs Detalhados** - Monitoramento completo de todas operações
+- ✅ **Limpeza Automática** - Remove backups antigos automaticamente
 
----
+## 🎯 Casos de Uso
+
+- 📊 Conformidade e auditoria (manter histórico de listas)
+- 🔄 Migração de dados entre ambientes
+- 🛡️ Backup preventivo antes de mudanças críticas
+- 📈 Análise de dados offline (exportar para Excel/Power BI)
+- 🏢 Ambientes corporativos com políticas rígidas de segurança
 
 ## 🚀 Início Rápido
 
 ### Pré-requisitos
 
-- ✅ Python 3.7 ou superior
-- ✅ Acesso aos sites SharePoint
-- ✅ Azure App Registration configurado
-- ✅ (Opcional) Celular com app ntfy.sh
+```bash
+# Python 3.7 ou superior
+python --version
 
-### Instalação Rápida
+# Pip atualizado
+pip --version
+```
+
+### Instalação
 
 **Opção 1: Com Internet**
 ```bash
-pip install Office365-REST-Python-Client schedule requests
+# Clone o repositório
+git clone https://github.com/xGabrielCv/Backup-Automatizado-SharePoint.git
+cd Backup-Automatizado-SharePoint
+
+# Configure suas credenciais
+# Edite config.json com suas credenciais do Azure AD
+
+# Execute
 python sharepoint_backup_ultimate.py
 ```
 
-**Opção 2: Sem Internet (Modo Portátil)**
+**Opção 2: Modo Portátil (Sem Internet)**
 ```bash
-# Em um PC com internet:
+# Em um PC com internet, prepare o ambiente
 prepare_portable.bat
 
-# No PC sem internet:
+# Copie a pasta para o pendrive
+# No PC sem internet
 install_offline.bat
 executar_backup.bat
 ```
 
----
-
-## ⚙️ Configuração Detalhada
-
-### 1. Credenciais Azure AD (Obrigatório)
+### Configuração Mínima
 
 ```json
 {
-    "tenant_id": "12345678-1234-1234-1234-123456789abc",
-    "client_id": "87654321-4321-4321-4321-cba987654321",
-    "client_secret": "AbC123XyZ~..."
-}
-```
-
-### 2. Sites SharePoint (Obrigatório)
-
-```json
-{
+    "tenant_id": "seu-tenant-id",
+    "client_id": "seu-client-id",
+    "client_secret": "seu-secret",
     "sharepoint_sites": [
         {
-            "url": "https://empresa.sharepoint.com/sites/vendas",
-            "nome": "Site Vendas"
-        },
-        {
-            "url": "https://empresa.sharepoint.com/sites/rh",
-            "nome": "Site RH"
+            "url": "https://empresa.sharepoint.com/sites/site1",
+            "nome": "Site Principal"
         }
-    ]
+    ],
+    "onedrive_user_email": "usuario@empresa.com"
 }
 ```
 
-### 3. OneDrive (Obrigatório)
+## 📖 Documentação
 
-```json
-{
-    "onedrive_user_email": "gabriel@empresa.com",
-    "onedrive_folder": "Backups_SharePoint"
-}
+- 📘 [Guia Completo de Configuração](docs/GUIA_CONFIGURACAO_AZURE.md)
+- 📗 [Modo Portátil (Pendrive)](docs/README_PORTABLE.md)
+- 📙 [Notificações Push](docs/README_NOTIFICACOES.md)
+- 📕 [Agendamento Avançado](docs/README_AGENDAMENTO.md)
+- 📝 [Changelog v4.0](docs/CHANGELOG_v4.0.md)
+
+## 🎬 Demo
+
+### Execução Normal
+```
+╔═══════════════════════════════════════════════════════════════════╗
+║     Sistema de Backup Automatizado do SharePoint v4.0            ║
+╚═══════════════════════════════════════════════════════════════════╝
+
+🎯 Escolha o modo:
+1. Backup AGORA (uma vez)
+2. Modo AGENDADO (automático)
+3. Backup AGORA + AGENDADO
+
+👉 Escolha (1-3): 1
+
+🚀 Iniciando backup...
+✅ Conectado: Site Vendas
+✅ Encontradas 15 listas
+📋 Exportando: Clientes (1,234 itens)
+✅ Lista exportada: 1,234 itens
+...
+☁️  Upload para OneDrive
+✅ Upload: 15/15 arquivos (100%)
+✅ BACKUP CONCLUÍDO!
 ```
 
-### 4. NOVO: Modo Portátil Local (Opcional)
 
-```json
-{
-    "use_portable_libs": true
-}
+### Dashboard de Execução
+```
+######################################################################
+##    🚀 BACKUP SHAREPOINT INICIADO    ##
+######################################################################
+📅 Data/Hora: 2025-01-25 02:00:00
+💻 Sistema: PORTÁTIL (Pendrive)
+⚡ Keep-Alive ATIVADO
+🔔 Notificações ATIVADAS
 ```
 
-**Quando usar:**
-- Você está em um PC com HD local (não pendrive)
-- Mas quer usar as bibliotecas de `portable_libs/`
-- Útil para ambientes sem acesso ao pip
-
-### 5. NOVO: Keep-Alive (Recomendado)
-
-```json
-{
-    "keep_alive_enabled": true
-}
+### Notificação Push
+```
+🔔 Notificação no Celular:
+┌──────────────────────────┐
+│ ✅ Backup Concluído!     │
+│                          │
+│ ⏱️ Duração: 0:18:25      │
+│                          │
+│ 📊 Estatísticas:         │
+│ • Listas: 15/15          │
+│ • Itens: 12,345          │
+│ • Upload: Sim            │
+└──────────────────────────┘
 ```
 
-**O que faz:**
-- Mantém o PC ativo durante o backup
-- Previne suspensão automática
-- Previne hibernação
-- Previne bloqueio de tela
-- Não afeta o desempenho
+## 🏗️ Estrutura do Projeto
 
-### 6. NOVO: Agendamento Avançado
+```
+Backup-Automatizado-SharePoint/
+├── 📄 sharepoint_backup_ultimate.py    # Script principal
+├── ⚙️ config.json                      # Configurações
+├── 📋 requirements.txt                 # Dependências Python
+├── 🔧 prepare_portable.bat             # Preparar modo portátil
+├── 💾 install_offline.bat              # Instalador offline
+├── ▶️ executar_backup.bat              # Atalho execução
+├── 🔍 verificar_instalacao.bat         # Verificar ambiente
+├── 🔔 testar_notificacoes.bat          # Testar ntfy.sh
+├── 📂 docs/                            # Documentação
+│   ├── GUIA_CONFIGURACAO_AZURE.md
+│   ├── README_PORTABLE.md
+│   ├── README_NOTIFICACOES.md
+│   ├── README_AGENDAMENTO.md
+│   └── CHANGELOG_v4.0.md
+├── 📂 portable_libs/                   # Bibliotecas offline
+└── 📂 Backups/                         # Backups gerados
+```
 
-#### Opção A: Diário (Padrão)
+## 🛠️ Tecnologias
+
+- **Python 3.7+** - Linguagem principal
+- **Office365-REST-Python-Client** - Integração SharePoint/OneDrive
+- **Microsoft Graph API** - Upload OneDrive
+- **schedule** - Agendamento de tarefas
+- **ntfy.sh** - Notificações push
+- **Azure AD** - Autenticação segura
+
+## 🔧 Configuração do Azure AD
+
+1. Acesse [Azure Portal](https://portal.azure.com)
+2. Azure Active Directory → App registrations → New registration
+3. Configure permissões:
+   - `Sites.Read.All` (Application)
+   - `Files.ReadWrite.All` (Application)
+   - `User.Read.All` (Application)
+4. Grant admin consent
+5. Copie: Tenant ID, Client ID, Client Secret
+
+📖 [Guia detalhado](docs/GUIA_CONFIGURACAO_AZURE.md)
+
+## 📅 Modos de Agendamento
+
+### Diário
 ```json
 {
     "schedule_type": "daily",
@@ -171,7 +212,7 @@ executar_backup.bat
 }
 ```
 
-#### Opção B: Intervalo de Dias
+### Intervalo (a cada X dias)
 ```json
 {
     "schedule_type": "interval",
@@ -179,9 +220,8 @@ executar_backup.bat
     "schedule_time": "02:00"
 }
 ```
-*Executa a cada 3 dias às 02:00*
 
-#### Opção C: Dias Específicos da Semana
+### Dias Específicos
 ```json
 {
     "schedule_type": "specific_days",
@@ -189,223 +229,96 @@ executar_backup.bat
     "schedule_time": "02:00"
 }
 ```
-*Executa segunda, quarta e sexta às 02:00*
 
-#### Opção D: Múltiplos Horários
+### Múltiplos Horários
 ```json
 {
     "schedule_type": "multiple_times",
     "schedule_times": ["02:00", "14:00", "20:00"]
 }
 ```
-*Executa 3 vezes por dia*
 
-### 7. NOVO: Notificações Push (Opcional)
+## 🔔 Notificações
 
+Configure notificações push opcionais:
+
+1. Instale app [ntfy](https://ntfy.sh) no celular
+2. Crie tópico único: `backup-sharepoint-seu-nome-123`
+3. Configure:
 ```json
 {
     "notifications_enabled": true,
-    "ntfy_topic": "backup-sharepoint-gabriel",
-    "ntfy_server": "https://ntfy.sh",
-    "ntfy_priority": "default",
-    "ntfy_timeout": 5
+    "ntfy_topic": "backup-sharepoint-seu-nome-123"
 }
 ```
+4. Teste: `testar_notificacoes.bat`
 
-**Como configurar:**
+## 🐛 Troubleshooting
 
-1. Instale o app ntfy no celular:
-   - Android: Play Store → "ntfy"
-   - iOS: App Store → "ntfy"
-   - Web: https://ntfy.sh/app
 
-2. Crie um tópico ÚNICO (ex: `backup-sharepoint-seu-nome-123`)
 
-3. No app, adicione esse tópico
+### Erro: Credenciais inválidas
+- Verifique tenant_id, client_id, client_secret
+- Confirme que o admin consent foi dado
+- Aguarde 5-10 minutos após criar o app
 
-4. Configure no `config.json`
-
-5. Teste: `testar_notificacoes.bat`
-
-**Notificações enviadas:**
-- 🚀 Início do backup
-- ⚠️ Avisos importantes
-- ❌ Erros críticos
-- ✅ Conclusão com estatísticas
-
----
-
-## 🎯 Modos de Execução
-
-### 1️⃣ Backup Imediato
-
-```bash
-python sharepoint_backup_ultimate.py
-# Escolha opção 1
-```
-
-### 2️⃣ Modo Agendado
-
-```bash
-python sharepoint_backup_ultimate.py
-# Escolha opção 2
-# Deixe o terminal aberto
-```
-
-### 3️⃣ Backup + Agendado
-
-```bash
-python sharepoint_backup_ultimate.py
-# Escolha opção 3
-```
-
----
-
-## 📊 Exemplo de Log Completo
-
-```
-2025-10-25 02:00:00 - INFO - ######################################################################
-2025-10-25 02:00:00 - INFO - ##    🚀 BACKUP SHAREPOINT INICIADO    ##
-2025-10-25 02:00:00 - INFO - ######################################################################
-2025-10-25 02:00:00 - INFO - 📅 2025-10-25 02:00:00
-2025-10-25 02:00:00 - INFO - 👤 gabriel
-2025-10-25 02:00:00 - INFO - ⚡ Keep-Alive ATIVADO (PC permanecerá ativo)
-2025-10-25 02:00:00 - INFO - 🔔 Notificações ATIVADAS (ntfy.sh)
-2025-10-25 02:00:01 - INFO - ✅ Pasta: Backups/Backup_2025-10-25
-2025-10-25 02:00:02 - INFO - ======================================================================
-2025-10-25 02:00:02 - INFO - 🚀 BACKUP: Site Vendas
-2025-10-25 02:00:02 - INFO - ======================================================================
-2025-10-25 02:00:03 - INFO - ✅ Conectado: Site Vendas
-2025-10-25 02:00:04 - INFO - ✅ Encontradas 15 listas
-2025-10-25 02:00:05 - INFO - 
-2025-10-25 02:00:05 - INFO - [1/15] Clientes
-2025-10-25 02:00:05 - INFO -   📋 Clientes (1234 itens)
-2025-10-25 02:00:12 - INFO -   ✅ Exportada: 1,234 itens
-...
-2025-10-25 02:15:45 - INFO - ======================================================================
-2025-10-25 02:15:45 - INFO - ☁️  UPLOAD ONEDRIVE
-2025-10-25 02:15:45 - INFO - ======================================================================
-2025-10-25 02:15:46 - INFO - ✅ Graph Client inicializado
-2025-10-25 02:15:46 - INFO -    Usuário: gabriel@empresa.com
-2025-10-25 02:15:47 - INFO - Total: 15 arquivos
-2025-10-25 02:18:23 - INFO - 
-2025-10-25 02:18:23 - INFO - ✅ Upload: 15/15 (100.0%)
-2025-10-25 02:18:23 - INFO - 📦 Tamanho: 45.67 MB
-2025-10-25 02:18:24 - INFO - 🗑️  Removendo: Backup_2025-10-18
-2025-10-25 02:18:25 - INFO - ✅ 1 backup(s) removido(s)
-2025-10-25 02:18:25 - INFO - 
-2025-10-25 02:18:25 - INFO - ######################################################################
-2025-10-25 02:18:25 - INFO - ##    ✅ BACKUP CONCLUÍDO    ##
-2025-10-25 02:18:25 - INFO - ######################################################################
-2025-10-25 02:18:25 - INFO - ⏱️  Duração: 0:18:25
-2025-10-25 02:18:25 - INFO - 📊 Listas: 15/15
-2025-10-25 02:18:25 - INFO - 📦 Itens: 12,345
-2025-10-25 02:18:25 - INFO - ☁️  Upload: Sim
-2025-10-25 02:18:25 - INFO - ######################################################################
-2025-10-25 02:18:26 - INFO - ✅ Keep-Alive desativado
-```
-
----
-
-## 🔧 Troubleshooting
-
-### Problema: PC suspende durante backup
-
-**Solução:**
+### PC suspende durante backup
 ```json
 {
     "keep_alive_enabled": true
 }
 ```
 
-### Problema: Notificações não chegam
+### Mais problemas?
+Consulte a [documentação completa](docs/README_FULL.md) ou abra uma [issue](https://github.com/xGabrielCv/Backup-Automatizado-SharePoint/issues).
 
-**Verificar:**
-1. App ntfy instalado no celular?
-2. Tópico adicionado no app?
-3. Tópico no config.json está correto?
-4. Execute: `testar_notificacoes.bat`
+## 📊 Estatísticas
 
-### Problema: Backup não executa no horário agendado
+- ⭐ **0 Issues abertas** (por enquanto!)
+- 🔀 **0 Pull Requests** (contribuições bem-vindas!)
+- 📥 **Downloads:** Em breve
+- 👥 **Contribuidores:** 1
 
-**Verificar:**
-1. Terminal/prompt ainda está aberto?
-2. PC está ligado no horário agendado?
-3. Keep-Alive está ativado?
+## 🤝 Contribuindo
 
-### Problema: Bibliotecas não encontradas (modo portátil)
+Contribuições são bem-vindas! 
 
-**Solução:**
-```bash
-cd portable_libs
-install_offline.bat
-```
+1. Fork o projeto
+2. Crie sua feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit suas mudanças (`git commit -m 'Add: nova funcionalidade'`)
+4. Push para a branch (`git push origin feature/AmazingFeature`)
+5. Abra um Pull Request
 
----
+### Ideias para Contribuir
 
-## 📚 Documentação Adicional
+- 🐧 Suporte completo para Linux/Mac
+- 🔐 Criptografia de backups
+- 📧 Notificações via email
+- 🗜️ Compressão de arquivos
+- 🌐 Interface web para configuração
+- 🐳 Dockerfile para containerização
+- 📊 Dashboard de estatísticas
 
-- 📖 [GUIA_CONFIGURACAO_AZURE.md](GUIA_CONFIGURACAO_AZURE.md) - Configurar Azure AD
-- 📖 [README_PORTABLE.md](README_PORTABLE.md) - Modo portátil detalhado
-- 📖 [README_NOTIFICACOES.md](README_NOTIFICACOES.md) - Configurar notificações
-- 📖 [README_AGENDAMENTO.md](README_AGENDAMENTO.md) - Agendamento avançado
-- 📖 [CHANGELOG_v4.0.md](CHANGELOG_v4.0.md) - Novidades desta versão
+## 👤 Autor
 
----
+**xGabrielCv**
 
-## 🎓 Perguntas Frequentes
+- GitHub: [@xGabrielCv](https://github.com/xGabrielCv)
+- Projeto: [Backup-Automatizado-SharePoint](https://github.com/xGabrielCv/Backup-Automatizado-SharePoint)
 
-### 1. O Keep-Alive funciona em Linux/Mac?
+## 📞 Suporte
 
-Atualmente apenas Windows. Em Linux/Mac, use `caffeinate` ou `systemd-inhibit`.
-
-### 2. As notificações são obrigatórias?
-
-Não! São totalmente opcionais. Configure `"notifications_enabled": false`.
-
-### 3. Posso usar meu próprio servidor ntfy?
-
-Sim! Configure `"ntfy_server": "https://meu-servidor.com"`.
-
-### 4. O que acontece se a notificação falhar?
-
-Nada! O backup continua normalmente. Notificações são não-bloqueantes.
-
-### 5. Posso agendar para fim de semana?
-
-Sim! Use:
-```json
-{
-    "schedule_type": "specific_days",
-    "schedule_days": ["saturday", "sunday"]
-}
-```
+- 📖 [Documentação](docs/README_FULL.md)
+- 🐛 [Reportar Bug](https://github.com/xGabrielCv/Backup-Automatizado-SharePoint/issues)
+- 💡 [Solicitar Feature](https://github.com/xGabrielCv/Backup-Automatizado-SharePoint/issues)
+- ⭐ [Dar Star no Projeto](https://github.com/xGabrielCv/Backup-Automatizado-SharePoint)
 
 ---
 
+<p align="center">
+  Desenvolvido com ❤️ por <a href="https://github.com/xGabrielCv">xGabrielCv</a>
+</p>
 
-### Logs
-
-Verifique: `backup_sharepoint.log`
-
-### Testar Componentes
-
-```bash
-verificar_instalacao.bat    # Verifica ambiente
-testar_notificacoes.bat     # Testa ntfy.sh
-```
-
----
-
-
-**⭐ Recursos v4.0:**
-- ✅ Keep-Alive (PC ativo)
-- ✅ Agendamento avançado (4 modos)
-- ✅ Notificações push (opcional)
-- ✅ Modo portátil aprimorado
-- ✅ Logs detalhados
-- ✅ Performance otimizada
-
----
-
-**Última atualização:** 2025-10-25 18:01:41 UTC
+<p align="center">
+  Se este projeto te ajudou, considere dar uma ⭐!
+</p>
